@@ -12,11 +12,15 @@ export default component$(() => {
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
         <title>Noise The White</title>
+        <meta name="apple-mobile-web-app-title" content="Noise The White" />
+        <meta name="theme-color" content="#0b0b0c" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="icon" type="image/svg+xml" href="/favicon-v4.svg" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32-v4.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16-v4.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-v4.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
