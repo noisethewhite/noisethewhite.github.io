@@ -6,6 +6,11 @@ dist/
 server/
 .vite/
 *.tsbuildinfo
+*.map
+
+# Agent tooling (ruflo/ruvector local DB)
+ruvector.db
+ruvector.db-*
 
 # Logs / env
 *.log
