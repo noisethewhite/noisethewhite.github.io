@@ -1,0 +1,21 @@
+{
+  "name": "noisethewhite",
+  "description": "Noise The White — homepage",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "npm run build.types && npm run build.client && npm run build.server",
+    "build.client": "vite build",
+    "build.server": "vite build -c adapters/static/vite.config.ts",
+    "build.types": "tsc --incremental --noEmit",
+    "dev": "vite --mode ssr",
+    "preview": "npm run build && vite preview"
+  },
+  "devDependencies": {
+    "@builder.io/qwik": "^1.20.0",
+    "@builder.io/qwik-city": "^1.20.0",
+    "@types/node": "^25.9.2",
+    "typescript": "^6.0.3",
+    "vite": "^7.3.5"
+  }
+}
