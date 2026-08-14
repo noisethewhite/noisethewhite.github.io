@@ -92,11 +92,6 @@ export default component$(() => {
           <p class="kicker">Barcelona, Spain</p>
           <h1>Maksim Dolgikh</h1>
           <p class="tag">Full-Stack Developer</p>
-          <p class="bio">
-            Software that runs in production, not in demos — regulatory document
-            pipelines, e-commerce integrations, and the self-hosted
-            infrastructure underneath.
-          </p>
         </section>
 
         <section class="slide">
