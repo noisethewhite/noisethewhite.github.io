@@ -11,7 +11,8 @@ export default component$(() => {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
-        <title>Noise The White</title>
+        <title>Maksim Dolgikh — Full-Stack Developer</title>
+        <meta name="description" content="Full-stack developer in Barcelona. Production tools: regulatory document pipelines, e-commerce integrations, self-hosted infrastructure." />
         <meta name="apple-mobile-web-app-title" content="Noise The White" />
         <meta name="theme-color" content="#0b0b0c" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
