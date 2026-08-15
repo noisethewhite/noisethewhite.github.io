@@ -6,37 +6,22 @@ export default component$(() => {
   const slide = useSignal(0);
 
   useVisibleTask$(({ cleanup }) => {
-    let locked = false;
-    let prevMag = 0;
-    let unlockTimer: ReturnType<typeof setTimeout>;
-    const lock = () => {
-      locked = true;
-      clearTimeout(unlockTimer);
-      unlockTimer = setTimeout(() => (locked = false), 200);
-    };
+    // Fixed cooldown between slide changes (respawn.com mechanics):
+    // no momentum detection — after a change, ignore everything for 1.6s.
+    // Trackpad momentum dies out in less time than that.
+    const COOLDOWN = 1600;
+    let lastChange = 0;
     const go = (dir: number) => {
-      if (locked) return;
+      const now = Date.now();
+      if (now - lastChange < COOLDOWN) return;
       const next = Math.min(TOTAL - 1, Math.max(0, slide.value + dir));
       if (next === slide.value) return;
       slide.value = next;
-      lock();
+      lastChange = now;
     };
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
-      const mag = Math.abs(e.deltaY);
-      if (locked) {
-        // Momentum only decays. A sharp rise in magnitude means the user
-        // deliberately swiped again — unlock and let it through.
-        if (mag > 12 && mag > prevMag * 1.5) {
-          locked = false;
-          clearTimeout(unlockTimer);
-        } else {
-          prevMag = mag;
-          lock();
-          return;
-        }
-      }
-      prevMag = mag;
+      if (Math.abs(e.deltaY) < 4) return; // jitter
       go(e.deltaY > 0 ? 1 : -1);
     };
     const onKey = (e: KeyboardEvent) => {
