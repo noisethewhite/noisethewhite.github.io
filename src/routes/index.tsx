@@ -7,16 +7,27 @@ export default component$(() => {
 
   useVisibleTask$(({ cleanup }) => {
     let locked = false;
+    let unlockTimer: ReturnType<typeof setTimeout>;
+    const lock = () => {
+      locked = true;
+      clearTimeout(unlockTimer);
+      unlockTimer = setTimeout(() => (locked = false), 950);
+    };
     const go = (dir: number) => {
       if (locked) return;
       const next = Math.min(TOTAL - 1, Math.max(0, slide.value + dir));
       if (next === slide.value) return;
       slide.value = next;
-      locked = true;
-      setTimeout(() => (locked = false), 950);
+      lock();
     };
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
+      if (locked) {
+        // Momentum tail: keep the lock until 300ms of wheel silence.
+        clearTimeout(unlockTimer);
+        unlockTimer = setTimeout(() => (locked = false), 300);
+        return;
+      }
       go(e.deltaY > 0 ? 1 : -1);
     };
     const onKey = (e: KeyboardEvent) => {
