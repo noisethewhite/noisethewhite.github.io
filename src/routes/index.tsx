@@ -7,11 +7,12 @@ export default component$(() => {
 
   useVisibleTask$(({ cleanup }) => {
     let locked = false;
+    let prevMag = 0;
     let unlockTimer: ReturnType<typeof setTimeout>;
     const lock = () => {
       locked = true;
       clearTimeout(unlockTimer);
-      unlockTimer = setTimeout(() => (locked = false), 950);
+      unlockTimer = setTimeout(() => (locked = false), 200);
     };
     const go = (dir: number) => {
       if (locked) return;
@@ -22,12 +23,20 @@ export default component$(() => {
     };
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
+      const mag = Math.abs(e.deltaY);
       if (locked) {
-        // Momentum tail: keep the lock until 300ms of wheel silence.
-        clearTimeout(unlockTimer);
-        unlockTimer = setTimeout(() => (locked = false), 300);
-        return;
+        // Momentum only decays. A sharp rise in magnitude means the user
+        // deliberately swiped again — unlock and let it through.
+        if (mag > 12 && mag > prevMag * 1.5) {
+          locked = false;
+          clearTimeout(unlockTimer);
+        } else {
+          prevMag = mag;
+          lock();
+          return;
+        }
       }
+      prevMag = mag;
       go(e.deltaY > 0 ? 1 : -1);
     };
     const onKey = (e: KeyboardEvent) => {
