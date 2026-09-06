@@ -2,7 +2,7 @@
 [data-theme="dark"] {
   --bg: #0b0b0c;
   --fg: #f4f4f5;
-  --muted: #8a8a90;
+  --muted: #9b9ba3;
   --card: #141416;
   --card-border: #232326;
   --card-border-hover: #3a3a3f;
@@ -10,7 +10,7 @@
 [data-theme="light"] {
   --bg: #f6f6f4;
   --fg: #131316;
-  --muted: #6b6b72;
+  --muted: #55555c;
   --card: #ffffff;
   --card-border: #e2e2de;
   --card-border-hover: #b8b8b2;
