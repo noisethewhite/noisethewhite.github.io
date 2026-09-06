@@ -96,7 +96,7 @@ export default component$(() => {
         <section class="slide">
           <p class="kicker">Barcelona, Spain</p>
           <h1>Maksim Dolgikh</h1>
-          <p class="tag">Full-Stack Developer</p>
+          <p class="tag">Full-Stack Developer · aka Noise The White</p>
         </section>
 
         <section class="slide">
