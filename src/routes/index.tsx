@@ -181,6 +181,8 @@ export default component$(() => {
             <a href="mailto:me@noisethewhite.dev">me@noisethewhite.dev</a>
             <span class="sep" aria-hidden="true">·</span>
             <a href="https://github.com/noisethewhite" target="_blank" rel="noopener">github.com/noisethewhite</a>
+            <span class="sep" aria-hidden="true">·</span>
+            <a href="https://linkedin.com/in/noisethewhite" target="_blank" rel="noopener">linkedin.com/in/noisethewhite</a>
           </p>
         </section>
       </div>
