@@ -1,6 +1,6 @@
 import { component$, useSignal, useVisibleTask$, $ } from "@builder.io/qwik";
 
-const TOTAL = 3;
+const TOTAL = 4;
 
 export default component$(() => {
   const slide = useSignal(0);
@@ -97,6 +97,10 @@ export default component$(() => {
           <p class="kicker">Barcelona, Spain</p>
           <h1>Maksim Dolgikh</h1>
           <p class="tag">Full-Stack Developer · aka Noise The White</p>
+          <p class="bio">
+            Full-stack developer building production tools — regulatory document
+            pipelines, e-commerce integrations, self-hosted infrastructure.
+          </p>
         </section>
 
         <section class="slide">
@@ -124,6 +128,45 @@ export default component$(() => {
                 barcode API, copy straight from the page.
               </p>
               <p class="card-stack">TypeScript · Qwik · Client-side</p>
+            </a>
+          </div>
+        </section>
+
+        <section class="slide">
+          <h2 class="section-title">Open source</h2>
+          <div class="cards">
+            <a class="card" href="https://github.com/noisethewhite/nylium" target="_blank" rel="noopener">
+              <div class="card-head">
+                <span class="card-title">nylium</span>
+                <span class="card-arrow" aria-hidden="true">↗</span>
+              </div>
+              <p class="card-desc">
+                Typed object store: parametric types (Feature&lt;T,R&gt;), computed
+                fields, files as first-class entities, passkey auth.
+              </p>
+              <p class="card-stack">FastAPI · SQLAlchemy · React 19 · TypeScript</p>
+            </a>
+            <a class="card" href="https://github.com/noisethewhite/morebuttons" target="_blank" rel="noopener">
+              <div class="card-head">
+                <span class="card-title">morebuttons</span>
+                <span class="card-arrow" aria-hidden="true">↗</span>
+              </div>
+              <p class="card-desc">
+                Shopify admin app: bulk variant editing, order lookup,
+                shipping rates, SKU weights.
+              </p>
+              <p class="card-stack">Flask · Shopify GraphQL · SQLAlchemy Core</p>
+            </a>
+            <a class="card" href="https://github.com/noisethewhite/yt-audio-tagger" target="_blank" rel="noopener">
+              <div class="card-head">
+                <span class="card-title">yt-audio-tagger</span>
+                <span class="card-arrow" aria-hidden="true">↗</span>
+              </div>
+              <p class="card-desc">
+                yt-dlp + ffmpeg CLI: metadata tags, cover art, chapter
+                timestamps.
+              </p>
+              <p class="card-stack">Python · yt-dlp · ffmpeg</p>
             </a>
           </div>
         </section>
